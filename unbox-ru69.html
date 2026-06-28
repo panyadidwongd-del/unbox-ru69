@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unbox Ru69</title>
+<style>
+  :root{
+    --bg:#1B1140;
+    --bg2:#2A1B5C;
+    --accent:#FFC857;
+    --accent2:#FF6F61;
+    --card:#241654;
+    --text:#F4EEFF;
+    --muted:#B8AEDC;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Trebuchet MS', 'Segoe UI', sans-serif;
+    background:radial-gradient(circle at 20% 0%, var(--bg2), var(--bg) 60%);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .app{
+    width:100%;
+    max-width:480px;
+  }
+  .page{display:none;}
+  .page.active{display:block; animation:fadeIn .35s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+
+  .brand{
+    text-align:center;
+    margin-bottom:18px;
+  }
+  .brand .tag{
+    letter-spacing:2px;
+    font-size:12px;
+    color:var(--accent);
+    text-transform:uppercase;
+  }
+  .brand h1{
+    margin:4px 0 0;
+    font-size:34px;
+    color:#fff;
+    text-shadow:0 0 18px rgba(255,200,87,.4);
+  }
+
+  .card{
+    background:var(--card);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.06);
+  }
+  label{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin:14px 0 6px;
+  }
+  input[type=text]{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    font-size:15px;
+  }
+  input[type=text]:focus{outline:2px solid var(--accent);}
+
+  .btn{
+    display:inline-block;
+    width:100%;
+    padding:14px;
+    margin-top:20px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:#231030;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn:disabled{opacity:.4; cursor:not-allowed;}
+  .btn.secondary{
+    background:transparent;
+    border:1px solid var(--accent);
+    color:var(--accent);
+  }
+
+  .q-title{font-size:18px; font-weight:700; margin-bottom:4px;}
+  .q-sub{font-size:13px; color:var(--muted); margin-bottom:16px;}
+  .counter{
+    text-align:right;
+    font-size:13px;
+    color:var(--accent);
+    margin-bottom:10px;
+    font-weight:700;
+  }
+
+  .group-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--accent);
+    margin:18px 0 8px;
+  }
+  .choice{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:11px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.12);
+    margin-bottom:8px;
+    cursor:pointer;
+    font-size:14px;
+    transition:background .15s, border-color .15s;
+  }
+  .choice:hover{background:rgba(255,255,255,.04);}
+  .choice.selected{
+    border-color:var(--accent);
+    background:rgba(255,200,87,.12);
+  }
+  .choice input{accent-color:var(--accent);}
+
+  .result-badge{
+    text-align:center;
+    margin-bottom:6px;
+  }
+  .result-badge .emoji{font-size:54px;}
+  .result-name{
+    text-align:center;
+    font-size:24px;
+    font-weight:800;
+    color:var(--accent);
+    margin:4px 0 2px;
+  }
+  .result-sub{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .block-title{
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+    margin:14px 0 4px;
+  }
+  .block-text{
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.5;
+  }
+  .scorebar{
+    display:flex;
+    gap:6px;
+    margin:14px 0;
+  }
+  .scorebar div{
+    flex:1;
+    text-align:center;
+    background:rgba(255,255,255,.05);
+    border-radius:8px;
+    padding:8px 4px;
+    font-size:12px;
+  }
+  .scorebar .val{font-size:18px; font-weight:800; color:#fff;}
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    margin-top:18px;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="brand">
+    <div class="tag">Unbox · Find your vibe</div>
+    <h1>Ru69 🎁</h1>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <div class="card">
+      <div class="q-title">เริ่มต้นด้วยตัวคุณ</div>
+      <div class="q-sub">กรอกข้อมูลสั้นๆ ก่อนไป Unbox ตัวเอง</div>
+
+      <label for="nickname">ชื่อเล่น</label>
+      <input type="text" id="nickname" placeholder="เช่น มิว">
+
+      <label for="senior">ชื่อรุ่นพี่ที่ชวนมาร่วมกิจกรรม</label>
+      <input type="text" id="senior" placeholder="เช่น พี่ตูน">
+
+      <button class="btn" id="toPage2">ไปต่อ 🚀</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <div class="card">
+      <div class="q-title">ตลอดการเรียน...</div>
+      <div class="q-sub">เลือกสิ่งที่คุณทำบ่อยที่สุด (เลือกได้ 5 ข้อ)</div>
+      <div class="counter" id="counter">เลือกแล้ว 0 / 5</div>
+      <div id="choices"></div>
+      <button class="btn" id="toPage3" disabled>ดูผลลัพธ์ ✨</button>
+    </div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <div class="card">
+      <div class="result-badge"><span class="emoji" id="resultEmoji">🎯</span></div>
+      <div class="result-name" id="resultName">—</div>
+      <div class="result-sub" id="resultGroup">—</div>
+
+      <div class="scorebar" id="scorebar"></div>
+
+      <div class="block-title">บทวิเคราะห์</div>
+      <div class="block-text" id="resultAnalysis">—</div>
+
+      <div class="block-title">จุดบอดที่ซ่อนอยู่</div>
+      <div class="block-text" id="resultBlindspot">—</div>
+
+      <button class="btn secondary" id="restart">🔄 ทำใหม่</button>
+    </div>
+  </div>
+
+  <footer>Unbox Ru69 · เพื่อนแต่ละแบบมีคุณค่าในแบบของตัวเอง 💛</footer>
+</div>
+
+<script>
+/* ---------- DATA ---------- */
+const QUESTIONS = [
+  // หมวด A: สายวิชาการ (0-4)
+  {text:"ลงคอร์สอัปสกิลเสริม", cat:"A"},
+  {text:"ปั่นรายงานอัปเกรด A", cat:"A"},
+  {text:"อ่านหนังสือมาราธอน 8 ชม.", cat:"A"},
+  {text:"เข้าคลาส / ดู VOD ครบ", cat:"A"},
+  {text:"ตะลุยชีทแดงหน้าราม", cat:"A"},
+  // หมวด B: สายสู้ชีวิต (5-9)
+  {text:"ประหยัดขั้นสุดเพื่อเก็บเงิน", cat:"B"},
+  {text:"กลับไปช่วยงานที่บ้าน", cat:"B"},
+  {text:"ปั่นงานฟรีแลนซ์ (เงินด่วน)", cat:"B"},
+  {text:"ทำคอนเทนต์หน้า TikTok", cat:"B"},
+  {text:"ยืนกะพาร์ทไทม์", cat:"B"},
+  // หมวด C: สายสังคม (10-14)
+  {text:"เข้าคอมมูนิตี้ฮีลใจ", cat:"C"},
+  {text:"ให้เวลาแฟน / คนคุย", cat:"C"},
+  {text:"ปาร์ตี้หมูกระทะฮีลใจ", cat:"C"},
+  {text:"ทำกิจกรรมในมหาลัยกับรุ่นพี่", cat:"C"},
+  {text:"นัดติวแบกเพื่อน", cat:"C"},
+  // หมวด D: สายฮีลใจ (15-19)
+  {text:"ปล่อยจอย (ไม่ต้องคิดอะไร)", cat:"D"},
+  {text:"เข้าฟิตเนส / ดูแลตัวเอง", cat:"D"},
+  {text:"เที่ยวคาเฟ่ / ตามติ่งคอนเสิร์ต", cat:"D"},
+  {text:"ตี้เกม / ปั่นซีรีส์โต้รุ่ง", cat:"D"},
+  {text:"นอนเต็มอิ่ม 8 ชม. (ห้ามกวน!)", cat:"D"},
+];
+
+const CAT_LABEL = {A:"สายวิชาการ", B:"สายสู้ชีวิต", C:"สายสังคม", D:"สายฮีลใจ"};
+
+const PURE_RESULTS = {
+  A:{name:"The Achiever", emoji:"🎓", group:"สายชัดเจน (The Pure)",
+     analysis:"เป็นคนที่มีเป้าหมายชัดเจน มีวินัยสูงมาก และให้ความสำคัญกับความสำเร็จด้านการศึกษาเป็นอันดับแรก จัดการความรับผิดชอบของตัวเองได้ดีเยี่ยม",
+     blindspot:"อาจมีความตึงเครียดสะสม ขาดความยืดหยุ่นในการใช้ชีวิต และพลาดโอกาสในการสร้างความสัมพันธ์หรือประสบการณ์นอกห้องเรียน"},
+  B:{name:"The Hustler", emoji:"💪", group:"สายชัดเจน (The Pure)",
+     analysis:"เป็นคนที่มีวุฒิภาวะ มองการณ์ไกล ให้ความสำคัญกับการสร้างรากฐานชีวิตและรายได้ มีความอดทนและทักษะการเอาตัวรอดในโลกความจริงสูง",
+     blindspot:"มักใช้ร่างกายและพลังงานเกินขีดจำกัด อาจละเลยการพักผ่อนที่เพียงพอ หรือไม่มีเวลาทบทวนบทเรียนจนกระทบต่อผลการเรียน"},
+  C:{name:"The Connector", emoji:"🤝", group:"สายชัดเจน (The Pure)",
+     analysis:"เป็นคนที่มีมนุษยสัมพันธ์ดีเยี่ยม ให้ความสำคัญกับมิตรภาพและการช่วยเหลือเกื้อกูล มักเป็นกาวใจของกลุ่มและทำงานร่วมกับผู้อื่นได้ดี",
+     blindspot:"มักให้ความสำคัญกับผู้อื่นจนลืมเป้าหมายส่วนตัว อาจถูกดึงเวลาไปกับเรื่องทางสังคมจนขาดสมาธิในการรับผิดชอบหน้าที่หลักของตนเอง"},
+  D:{name:"The Balancer", emoji:"🌿", group:"สายชัดเจน (The Pure)",
+     analysis:"เป็นคนที่เข้าใจขีดจำกัดของตัวเอง ให้ความสำคัญกับสุขภาพจิตและความสุขในปัจจุบัน ไม่ปล่อยให้สภาพแวดล้อมมากดดันจนเสียความเป็นตัวเอง",
+     blindspot:"การอยู่ในพื้นที่ปลอดภัย (Comfort Zone) มากเกินไป อาจทำให้ขาดแรงกระตุ้นในการพัฒนาตนเอง หรือกลายเป็นความเฉื่อยชาเมื่อต้องเผชิญความท้าทาย"},
+};
+
+const HYBRID_RESULTS = {
+  "A,B":{name:"เรียนเด่น-งานรุ่ง", emoji:"📚💼",
+     analysis:"มีความรับผิดชอบสูงมากทั้งต่ออนาคตและปากท้อง จัดการเวลาเก่ง เป็นคนสู้ชีวิตที่วางแผนการเรียนควบคู่กันไปได้",
+     blindspot:"เสี่ยงต่อภาวะหมดไฟ (Burnout) สูงที่สุด เพราะตัดขาดเวลาพักผ่อนและชีวิตสังคมออกไปเกือบทั้งหมด"},
+  "A,C":{name:"วิชาการ-สังคม", emoji:"📚🤝",
+     analysis:"เป็นที่พึ่งพาของเพื่อนๆ มักเป็นผู้นำกลุ่มติว สามารถบาลานซ์เป้าหมายส่วนตัวเข้ากับความสัมพันธ์ในกลุ่มได้ดี",
+     blindspot:"อาจเหนื่อยล้าจากการต้องรับบท \"เดอะแบก\" ของเพื่อนๆ จนเบียดบังเวลาพักผ่อนส่วนตัว"},
+  "A,D":{name:"เรียนหนัก-พักสุด", emoji:"📚🌿",
+     analysis:"ยึดหลัก Work Hard, Rest Hard จัดสรรเวลาลุยและเวลาพักผ่อนอย่างเป็นระบบ รู้จักเติมพลังให้ตัวเองเพื่อไม่ให้เครียดจนเกินไป",
+     blindspot:"มักมีโลกส่วนตัวสูง ทำอะไรด้วยตัวเองเป็นหลัก ทำให้พลาดคอนเนคชันหรือเพื่อนร่วมทางที่อาจช่วยแบ่งเบาภาระได้"},
+  "B,C":{name:"หาเงิน-คอนเนคชัน", emoji:"💼🤝",
+     analysis:"เป็นนักเจรจาหรือนักธุรกิจตัวยง สามารถเปลี่ยนเครือข่ายเพื่อนฝูงให้เป็นโอกาส หรือชอบทำงานเป็นทีม",
+     blindspot:"อาจให้เวลากับกิจกรรมภายนอกมากเกินไป จนละเลยการเข้าเรียนหรือการทำความเข้าใจเนื้อหาวิชาการลึกๆ"},
+  "B,D":{name:"สู้ชีวิต-เปย์ตัวเอง", emoji:"💼🌿",
+     analysis:"ทำงานหนักเพื่อหาเงินมาเติมเต็มความสุขให้ตัวเอง ใช้รางวัลเป็นแรงจูงใจในการใช้ชีวิต",
+     blindspot:"มักละเลยด้านวิชาการอย่างสิ้นเชิง และด้วยไลฟ์สไตล์ที่พึ่งพาตัวเองสูง อาจทำให้ไม่มีที่ปรึกษาในยามที่เกิดปัญหา"},
+  "C,D":{name:"สายชิลล์-รักเพื่อน", emoji:"🤝🌿",
+     analysis:"ชีวิตเต็มไปด้วยสีสัน ความสุข และรอยยิ้ม เป็นคนที่มีสุขภาพจิตดีและเป็นพื้นที่สบายใจให้คนรอบข้างเสมอ",
+     blindspot:"เสี่ยงต่อการเรียนล่าช้า และขาดการวางแผนเป้าหมายในอนาคตที่จริงจัง"},
+};
+
+const JUGGLER_RESULT = {
+  name:"The Juggler (ยอดมนุษย์เดอะแบก)", emoji:"🤹", group:"สายพิเศษ",
+  analysis:"เป็นคนที่มีความทะเยอทะยานที่จะรักษาสมดุลในทุกมิติของชีวิต มีความรับผิดชอบสูง (มีความเป็น Perfectionist แฝงอยู่) พยายามทำหน้าที่ทุกอย่างให้ครบถ้วน ทั้งเรื่องเรียน งาน สังคม และส่วนตัว",
+  blindspot:"ตารางชีวิตเหมือน \"เชือกที่ตึงเปรี๊ยะ\" หากมีสถานการณ์ฉุกเฉินเข้ามาแทรกเพียงนิดเดียว ทุกอย่างที่วางแผนไว้จะรวนทั้งหมด และมักจะกดดันตัวเองหนักกว่าคนอื่นเพราะไม่อยากทิ้งสิ่งใดไปเลย",
+};
+
+/* ---------- STATE ---------- */
+let selected = []; // array of question indexes
+
+/* ---------- RENDER QUESTIONS ---------- */
+const choicesEl = document.getElementById('choices');
+const groupNames = {A:"สายวิชาการ", B:"สายสู้ชีวิต", C:"สายสังคม", D:"สายฮีลใจ"};
+let lastCat = null;
+QUESTIONS.forEach((q, i) => {
+  if (q.cat !== lastCat) {
+    const label = document.createElement('div');
+    label.className = 'group-label';
+    label.textContent = groupNames[q.cat];
+    choicesEl.appendChild(label);
+    lastCat = q.cat;
+  }
+  const div = document.createElement('label');
+  div.className = 'choice';
+  div.innerHTML = `<input type="checkbox" data-idx="${i}"> <span>${i+1}. ${q.text}</span>`;
+  choicesEl.appendChild(div);
+});
+
+const counterEl = document.getElementById('counter');
+const toPage3Btn = document.getElementById('toPage3');
+
+choicesEl.addEventListener('change', (e) => {
+  if (e.target.type !== 'checkbox') return;
+  const idx = parseInt(e.target.dataset.idx, 10);
+  const choiceDiv = e.target.closest('.choice');
+  if (e.target.checked) {
+    if (selected.length >= 5) {
+      e.target.checked = false;
+      return;
+    }
+    selected.push(idx);
+    choiceDiv.classList.add('selected');
+  } else {
+    selected = selected.filter(x => x !== idx);
+    choiceDiv.classList.remove('selected');
+  }
+  counterEl.textContent = `เลือกแล้ว ${selected.length} / 5`;
+  toPage3Btn.disabled = selected.length !== 5;
+});
+
+/* ---------- NAVIGATION ---------- */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+document.getElementById('toPage2').addEventListener('click', () => {
+  showPage('page2');
+});
+
+document.getElementById('toPage3').addEventListener('click', () => {
+  computeResult();
+  showPage('page3');
+});
+
+document.getElementById('restart').addEventListener('click', () => {
+  selected = [];
+  document.querySelectorAll('#choices input[type=checkbox]').forEach(cb => {
+    cb.checked = false;
+    cb.closest('.choice').classList.remove('selected');
+  });
+  counterEl.textContent = 'เลือกแล้ว 0 / 5';
+  toPage3Btn.disabled = true;
+  showPage('page2');
+});
+
+/* ---------- SCORING ---------- */
+function computeResult() {
+  const counts = {A:0, B:0, C:0, D:0};
+  selected.forEach(idx => { counts[QUESTIONS[idx].cat]++; });
+
+  const cats = ["A","B","C","D"];
+  const sorted = cats.slice().sort((a,b) => counts[b]-counts[a]);
+  const top = counts[sorted[0]];
+  const second = counts[sorted[1]];
+
+  let result, groupLabel;
+
+  if (top >= 3) {
+    // The Pure
+    const r = PURE_RESULTS[sorted[0]];
+    result = r;
+    groupLabel = r.group;
+  } else if (top === 2 && second === 2) {
+    // Hybrid: two categories tied at 2, find them, key in fixed A-B-C-D order
+    const tiedCats = cats.filter(c => counts[c] === 2).sort();
+    const key = tiedCats.join(",");
+    const r = HYBRID_RESULTS[key];
+    result = r;
+    groupLabel = "สายผสม (The Hybrid)";
+  } else {
+    // Juggler: 2-1-1-1 pattern (all 4 categories have at least 1 point)
+    result = JUGGLER_RESULT;
+    groupLabel = result.group;
+  }
+
+  document.getElementById('resultEmoji').textContent = result.emoji;
+  document.getElementById('resultName').textContent = result.name;
+  document.getElementById('resultGroup').textContent = groupLabel;
+  document.getElementById('resultAnalysis').textContent = result.analysis;
+  document.getElementById('resultBlindspot').textContent = result.blindspot;
+
+  const scorebar = document.getElementById('scorebar');
+  scorebar.innerHTML = "";
+  cats.forEach(c => {
+    const div = document.createElement('div');
+    div.innerHTML = `<div class="val">${counts[c]}</div><div>${CAT_LABEL[c].replace('สาย','')}</div>`;
+    scorebar.appendChild(div);
+  });
+}
+</script>
+</body>
+</html>
